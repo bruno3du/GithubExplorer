@@ -1,8 +1,9 @@
 /** @format */
 
 import { SearchOutlined } from '@mui/icons-material';
-import { IconButton, InputBase, Paper, Box } from '@mui/material';
+import { IconButton, InputBase, Paper, Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import CardRepo from '../components/CardRepo';
 import ProfileCard from '../components/ProfileCard';
 
 const GithubProfile = () => {
@@ -43,7 +44,12 @@ const GithubProfile = () => {
 					</Paper>
 				</Box>
 				<ProfileCard />
-				<Box>Repositorio</Box>
+				<Box mt={6}>
+					<Typography sx={{color: '#232323'}} variant='h2' component='h2'>
+						<strong >Repositório</strong>
+					</Typography>
+					<CardRepo />
+				</Box>
 			</Box>
 		</>
 	);
