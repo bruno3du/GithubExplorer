@@ -1,55 +1,73 @@
 /** @format */
 
-import { SearchOutlined } from '@mui/icons-material';
-import { IconButton, InputBase, Paper, Box, Typography } from '@mui/material';
+import { Box, Typography, Grid, CircularProgress } from '@mui/material';
 import React, { useState } from 'react';
 import CardRepo from '../components/CardRepo';
+import TransitionsModal from '../components/Modal';
 import ProfileCard from '../components/ProfileCard';
+import { SearchUser } from '../components/SearchUser';
+import useGithub from '../hooks/useGithub';
+
+const cotainerBox = {
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'center',
+};
 
 const GithubProfile = () => {
-	const [text, setText] = useState('');
+	const [open, setOpen] = useState(false);
+	const { githubState } = useGithub();
 
 	return (
 		<>
-			<Box
-				maxWidth='xl'
-				sx={{
-					display: 'flex',
-					height: '100vh',
-					flexDirection: 'column',
-					alignItems: 'center',
-				}}>
+			<Box maxWidth='xl' sx={cotainerBox}>
 				<Box
 					mt={5}
 					sx={{ display: 'flex', justifyContent: 'center', maxWidth: '90%' }}>
-					<Paper
-						component='form'
-						sx={{
-							p: '2px 4px',
+					<SearchUser setOpen={setOpen} />
+				</Box>
+				{githubState.loading ? (
+					<div
+						style={{
+							width: '100vw',
+							height: '100vh',
 							display: 'flex',
-							width: 600,
+							justifyContent: 'center',
+							alignItems: 'center',
 						}}>
-						<InputBase
-							value={text}
-							onChange={(e) => {
-								setText(e.target.value);
-							}}
-							sx={{ ml: 1, flex: 1 }}
-							placeholder='Search'
-							inputProps={{ 'aria-label': 'Search' }}
-						/>
-						<IconButton type='submit' sx={{ p: '10px' }} aria-label='search'>
-							<SearchOutlined />
-						</IconButton>
-					</Paper>
-				</Box>
-				<ProfileCard />
-				<Box mt={6}>
-					<Typography sx={{color: '#232323'}} variant='h2' component='h2'>
-						<strong >Repositório</strong>
-					</Typography>
-					<CardRepo />
-				</Box>
+						<CircularProgress />
+					</div>
+				) : (
+					<>
+						<ProfileCard />
+						<Box mt={6} width='90vw'>
+							<Typography
+								sx={{ color: '#232323', textAlign: 'center' }}
+								variant='h2'
+								component='h2'>
+								<strong>Repositório</strong>
+							</Typography>
+							<Grid container spacing='5'>
+								<Grid item xs='6' md='4'>
+									<CardRepo title='Name Project' value='bruno3du/bruno3du' />
+								</Grid>
+								<Grid item xs='6' md='4'>
+									<CardRepo title='Name Project' value='bruno3du/bruno3du' />
+								</Grid>
+								<Grid item xs='6' md='4'>
+									<CardRepo title='Name Project' value='bruno3du/bruno3du' />
+								</Grid>
+								<Grid item xs='6' md='4'>
+									<CardRepo title='Name Project' value='bruno3du/bruno3du' />
+								</Grid>
+								<Grid item xs='6' md='4'>
+									<CardRepo title='Name Project' value='bruno3du/bruno3du' />
+								</Grid>
+							</Grid>
+						</Box>
+					</>
+				)}
+				<TransitionsModal open={open} setOpen={setOpen} />
 			</Box>
 		</>
 	);
