@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Github Explorer
 
 Github Explorer é uma aplicação que mostra de forma personalizada perfis de github, assim como repositórios e starred, consequentemente.
@@ -5,21 +7,20 @@ Github Explorer é uma aplicação que mostra de forma personalizada perfis de g
 Essa aplicação foi construida com MaterialUI e engine Styled Components como base do layout. Faciltando muito no desenvolvimente e gerando animações, sem contar que tras maior fluidez entre as sessões.
 
 Feito validações, as consultas foram tratadas de forma que evitam erros desnecessarias, não quebre a aplicação, e o usuário venha usar a aplicação de forma intuitiva e direcionada.
+
 <div align="center">
   texte
-  <img src=""/>
+  <img src="./image/githubExplorer.gif" />
 </div>
 
+# Tabela de conteúdos
 
-Tabela de conteúdos
-=================
 <p align="center">
  <a href="#começando">Começando</a> •
  <a href="#prerequisitos">Pré-requisitos</a> • 
  <a href="#instalação">Instalação</a> • 
  <a href="#autor">Autor</a>
 </p>
-
 
 ## 🚀 Começando
 
@@ -30,9 +31,8 @@ Consulte **Instalação** para saber como implantar o projeto.
 ### 📋 Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
-
 
 ### 🔧 Instalação
 
@@ -55,6 +55,7 @@ $ yarn start
 ## 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
+
 <div align="left">
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" >
 <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" >
@@ -65,24 +66,22 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## 📌 Versão
 
-Foi usado o [Github](https://github.com/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto). 
+Foi usado o [Github](https://github.com/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto).
 
 ## 🎁 Expressões de gratidão
 
-* Conte a outras pessoas sobre este projeto 📢
-* Agradeço imensamente o apoio de cada um nesta trajetória 🤓.
-* etc.
-
+- Conte a outras pessoas sobre este projeto 📢
+- Agradeço imensamente o apoio de cada um nesta trajetória 🤓.
+- etc.
 
 ---
-### Autor
 
+### Autor
 
 <a href="https://github.com/bruno3du">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/83365446?v=4" width="100px;" alt=""/>
  <br />
  <sub><b>Bruno Eduardo</b></sub></a> <a href="https://github.com/bruno3du" title="My Photo Profile">🚀</a>
-
 
 Feito com ❤️ por Bruno Eduardo 👋🏽 Entre em contato!
 
