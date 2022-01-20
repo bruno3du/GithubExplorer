@@ -1,94 +1,90 @@
-# Getting Started with Create React App
+# Github Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Github Explorer é uma aplicação que mostra de forma personalizada perfis de github, assim como repositórios e starred, consequentemente.
 
-## About project
+Essa aplicação foi construida com MaterialUI e engine Styled Components como base do layout. Faciltando muito no desenvolvimente e gerando animações, sem contar que tras maior fluidez entre as sessões.
 
-This repository was created in order to show how we can create a frontend application with reusable components.
+Feito validações, as consultas foram tratadas de forma que evitam erros desnecessarias, não quebre a aplicação, e o usuário venha usar a aplicação de forma intuitiva e direcionada.
+<div align="center">
+  texte
+  <img src=""/>
+</div>
 
-We will create an application using the github public api.
 
-### Features
+Tabela de conteúdos
+=================
+<p align="center">
+ <a href="#começando">Começando</a> •
+ <a href="#prerequisitos">Pré-requisitos</a> • 
+ <a href="#instalação">Instalação</a> • 
+ <a href="#autor">Autor</a>
+</p>
 
-- Search infos by username
-- Search repo by username
-- Search starred by username
 
-### Preview
+## 🚀 Começando
 
-Print of the finished project.
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-![plot](./image/snapshot-1.png)
+Consulte **Instalação** para saber como implantar o projeto.
 
-### Libraries used
+### 📋 Pré-requisitos
 
-- [axios](https://www.npmjs.com/package/axios)
-- [react-tabs](https://www.npmjs.com/package/react-tabs)
-- [styled-components](https://styled-components.com/)
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-## Available Scripts
 
-In the project directory, you can run:
+### 🔧 Instalação
 
-### `yarn start`
+```bash
+# Clone este repositório
+$ git clone <https://github.com/bruno3du/GithubExplorer.git>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd GithubExplorer
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Instale as dependências
+$ yarn install
 
-### `yarn test`
+# Execute a aplicação em modo de desenvolvimento
+$ yarn start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
+```
 
-### `yarn build`
+## 🛠 Tecnologias
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+As seguintes ferramentas foram usadas na construção do projeto:
+<div align="left">
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" >
+<img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" >
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+<img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white" />
+<img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" />
+</div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📌 Versão
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Foi usado o [Github](https://github.com/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto). 
 
-### `yarn eject`
+## 🎁 Expressões de gratidão
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Conte a outras pessoas sobre este projeto 📢
+* Agradeço imensamente o apoio de cada um nesta trajetória 🤓.
+* etc.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
+### Autor
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+<a href="https://github.com/bruno3du">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/83365446?v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Bruno Eduardo</b></sub></a> <a href="https://github.com/bruno3du" title="My Photo Profile">🚀</a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Feito com ❤️ por Bruno Eduardo 👋🏽 Entre em contato!
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/bruno-eduardo-alves/)](https://www.linkedin.com/in/bruno-eduardo-alves/)
+[![Hotmail Badge](https://img.shields.io/badge/-bruno.3duardo@hotmail.com-0078D4?style=flat-square&logo=microsoft-outlook&logoColor=white&link=mailto:bruno.3duardo@hotmail.com)](mailto:bruno.3duardo@hotmail.com)
