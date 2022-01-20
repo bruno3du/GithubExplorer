@@ -1,5 +1,6 @@
 /** @format */
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const BoxContainer = styled.div`
 	margin-top: 30px;
@@ -22,20 +23,22 @@ const BoxValue = styled.div`
 	justify-content: center;
 	align-items: center;
 	font-size: 14px;
-	color: #232323;
+	color: #0C6C82;
 	padding: 25px 5px 20px 15px;
 	border-radius: 5px;
 	margin-top: -7px;
 	background-color: #f0f0f0;
 `;
 
-const CardRepo = ({ title, value }) => {
+const CardRepo = ({ title, value, path = '/' }) => {
 	return (
 		<BoxContainer>
 			<BoxTitle>
 				<strong>{title}</strong>
 			</BoxTitle>
-			<BoxValue>{value}</BoxValue>
+			<BoxValue>
+				<Link to={path}>{value}</Link>
+			</BoxValue>
 		</BoxContainer>
 	);
 };

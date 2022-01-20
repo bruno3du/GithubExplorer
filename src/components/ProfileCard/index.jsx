@@ -1,9 +1,9 @@
 /** @format */
 
 import { Avatar, Box, Typography, Grid, Button } from '@mui/material';
-import avatarImage from '../../global/foto.jpeg';
 import LittleCard from '../LittleCard';
 import { styled } from '@mui/material/styles';
+import useGithub from '../../hooks/useGithub';
 
 const ButtonStyled = styled(Button)({
 	textDecoration: 'none',
@@ -16,11 +16,31 @@ const ButtonStyled = styled(Button)({
 	border: 'none',
 	'&:hover': {
 		backgroundColor: '#117991',
-
 	},
 });
 
-const ProfileCard = () => {
+const ProfileCard = ({ setOpenRepos, openRepos }) => {
+	const { githubState, getUserRepos } = useGithub();
+
+	function handleRepos(user) {
+		if (!user) return;
+
+		setOpenRepos(!openRepos);
+
+		if (githubState.repositories.length !== 0) return;
+
+		getUserRepos(user);
+	}
+
+	function concatName(name) {
+		if (name?.length > 16) {
+			const newName = name.substring(0, 16);
+			const conc = newName + '...';
+			return conc;
+		}
+		return name;
+	}
+
 	return (
 		<Box
 			mt='5%'
@@ -41,41 +61,41 @@ const ProfileCard = () => {
 				<Box>
 					<Avatar
 						alt='foto perfil github'
-						src={avatarImage}
+						src={githubState.user.avatar}
 						sx={{ width: 200, height: 200, marginTop: 4 }}
 					/>
 				</Box>
 				<Box mt={6}>
 					<Typography variant='h4' color='white'>
-						Bruno Eduardo
+						{concatName(githubState.user.name)}
 					</Typography>
 
 					<Typography
 						variant='p'
 						color='white'
 						sx={{ display: 'block', marginTop: '15px', fontSize: '14px' }}>
-						<strong>Username:</strong> bruno3du
+						<strong>Username:</strong> {githubState.user.login}
 					</Typography>
 
 					<Typography
 						variant='p'
 						sx={{ display: 'block', marginTop: '15px', fontSize: '14px' }}
 						color='white'>
-						<strong>Company:</strong>
+						<strong>Company:</strong> {githubState.user.company}
 					</Typography>
 
 					<Typography
 						variant='p'
 						color='white'
 						sx={{ display: 'block', marginTop: '15px', fontSize: '14px' }}>
-						<strong>Location:</strong> Americana - São Paulo - Brazil
+						<strong>Location:</strong> {githubState.user.location}
 					</Typography>
 
 					<Typography
 						variant='p'
 						color='white'
 						sx={{ display: 'block', marginTop: '15px', fontSize: '14px' }}>
-						<strong>Blog:</strong>
+						<strong>Blog:</strong> {githubState.user.blog}
 					</Typography>
 				</Box>
 			</Box>
@@ -84,18 +104,18 @@ const ProfileCard = () => {
 					maxWidth='100%'
 					container
 					rowSpacing={1}
-					columnSpacing={{ xs: 0.2, sm: 0.5, md: 0.8 }}>
+					columnSpacing={{ xs: 1, sm: 1, md: 2 }}>
 					<Grid item xs={6} sm={3}>
-						<LittleCard title='Followers' value='30' />
+						<LittleCard title='Followers' value={githubState.user.followers} />
 					</Grid>
 					<Grid item xs={6} sm={3}>
-						<LittleCard title='Followings' value='30' />
+						<LittleCard title='Followings' value={githubState.user.following} />
 					</Grid>
 					<Grid item xs={6} sm={3}>
-						<LittleCard title='Gists' value='30' />
+						<LittleCard title='Gists' value={githubState.user.public_gists} />
 					</Grid>
 					<Grid item xs={6} sm={3}>
-						<LittleCard title='Repos' value='30' />
+						<LittleCard title='Repos' value={githubState.user.public_repos} />
 					</Grid>
 				</Grid>
 			</Box>
@@ -107,7 +127,9 @@ const ProfileCard = () => {
 					gap: '10px',
 					marginBottom: '-15px',
 				}}>
-				<ButtonStyled>Repositorio</ButtonStyled>
+				<ButtonStyled onClick={() => handleRepos(githubState.user.login)}>
+					Repositório
+				</ButtonStyled>
 				<ButtonStyled>Starred</ButtonStyled>
 			</div>
 		</Box>

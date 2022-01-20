@@ -1,11 +1,13 @@
 /** @format */
 
-import { CircularProgress, Container, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { Box } from '@mui/system';
 import useGithub from '../hooks/useGithub';
 import { SearchUser } from '../components/SearchUser';
 import TransitionsModal from '../components/Modal';
+import LoadingState from '../components/LoadingState';
+import Footer from '../components/Footer';
 
 const Home = () => {
 	const [open, setOpen] = useState(false);
@@ -14,20 +16,11 @@ const Home = () => {
 	return (
 		<>
 			{githubState.loading ? (
-				<div
-					style={{
-						width: '100vw',
-						height: '100vh',
-						display: 'flex',
-						justifyContent: 'center',
-						alignItems: 'center',
-					}}>
-					<CircularProgress />
-				</div>
+				<LoadingState />
 			) : (
 				<Container maxWidth='xl'>
 					<Box
-						sx={{ display: 'flex', height: '100vh' }}
+						sx={{ display: 'flex', height: '85vh' }}
 						flexDirection='column'
 						justifyContent='center'
 						alignItems='center'>
@@ -39,6 +32,7 @@ const Home = () => {
 						</Typography>
 						<SearchUser setOpen={setOpen} />
 					</Box>
+					<Footer />
 					<TransitionsModal open={open} setOpen={setOpen} />
 				</Container>
 			)}

@@ -20,8 +20,9 @@ export const SearchUser = ({ setOpen }) => {
 			await getUser(text);
 			navigate('/githubprofile');
 		} catch (error) {
-			console.log(error);
 			setOpen(true);
+		} finally {
+			setText('');
 		}
 	}
 
