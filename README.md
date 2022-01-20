@@ -9,7 +9,6 @@ Essa aplicação foi construida com MaterialUI e engine Styled Components como b
 Feito validações, as consultas foram tratadas de forma que evitam erros desnecessarias, não quebre a aplicação, e o usuário venha usar a aplicação de forma intuitiva e direcionada.
 
 <div align="center">
-  texte
   <img src="./image/githubExplorer.gif" />
 </div>
 
