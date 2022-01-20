@@ -1,9 +1,9 @@
 /** @format */
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const BoxContainer = styled.div`
 	margin-top: 30px;
+	overflow: hidden;
 `;
 
 const BoxTitle = styled.div`
@@ -23,7 +23,7 @@ const BoxValue = styled.div`
 	justify-content: center;
 	align-items: center;
 	font-size: 14px;
-	color: #0C6C82;
+	color: #0c6c82;
 	padding: 25px 5px 20px 15px;
 	border-radius: 5px;
 	margin-top: -7px;
@@ -37,7 +37,9 @@ const CardRepo = ({ title, value, path = '/' }) => {
 				<strong>{title}</strong>
 			</BoxTitle>
 			<BoxValue>
-				<Link to={path}>{value}</Link>
+				<a href={path} rel='noreferrer' target='_blank'>
+					{value}
+				</a>
 			</BoxValue>
 		</BoxContainer>
 	);

@@ -19,26 +19,45 @@ const ButtonStyled = styled(Button)({
 	},
 });
 
-const ProfileCard = ({ setOpenRepos, openRepos }) => {
-	const { githubState, getUserRepos } = useGithub();
+const ProfileCard = ({
+	setOpenRepos,
+	openRepos,
+	setOpenStarred,
+	openStarred,
+}) => {
+	const { githubState, getUserRepos, getUserStarred } = useGithub();
 
-	function handleRepos(user) {
+	async function handleRepos(user) {
 		if (!user) return;
 
+		setOpenStarred(false);
 		setOpenRepos(!openRepos);
 
 		if (githubState.repositories.length !== 0) return;
 
-		getUserRepos(user);
+		await getUserRepos(user);
+	}
+	console.log(githubState);
+	async function handleStarred(user) {
+		if (!user) return;
+
+		// fechando repositório caso aberto
+		setOpenStarred(!openStarred);
+		
+		setOpenRepos(false);
+
+		if (githubState.starred.length !== 0) return;
+
+		await getUserStarred(user);
 	}
 
-	function concatName(name) {
-		if (name?.length > 16) {
-			const newName = name.substring(0, 16);
+	function cutString(string, quant = 16) {
+		if (string?.length > quant) {
+			const newName = string.substring(0, quant);
 			const conc = newName + '...';
 			return conc;
 		}
-		return name;
+		return string;
 	}
 
 	return (
@@ -67,7 +86,7 @@ const ProfileCard = ({ setOpenRepos, openRepos }) => {
 				</Box>
 				<Box mt={6}>
 					<Typography variant='h4' color='white'>
-						{concatName(githubState.user.name)}
+						{cutString(githubState.user.name)}
 					</Typography>
 
 					<Typography
@@ -81,30 +100,29 @@ const ProfileCard = ({ setOpenRepos, openRepos }) => {
 						variant='p'
 						sx={{ display: 'block', marginTop: '15px', fontSize: '14px' }}
 						color='white'>
-						<strong>Company:</strong> {githubState.user.company}
+						<strong>Company:</strong> {cutString(githubState.user.company)}
 					</Typography>
 
 					<Typography
 						variant='p'
 						color='white'
 						sx={{ display: 'block', marginTop: '15px', fontSize: '14px' }}>
-						<strong>Location:</strong> {githubState.user.location}
+						<strong>Location:</strong> {cutString(githubState.user.location)}
 					</Typography>
 
 					<Typography
 						variant='p'
 						color='white'
 						sx={{ display: 'block', marginTop: '15px', fontSize: '14px' }}>
-						<strong>Blog:</strong> {githubState.user.blog}
+						<strong>Blog:</strong>{' '}
+						<a href={githubState.user.blog} rel='noreferrer' target='_blank'>
+							{cutString(githubState.user.blog, 36)}
+						</a>
 					</Typography>
 				</Box>
 			</Box>
-			<Box sx={{ width: '100%', margin: '30px 20px' }}>
-				<Grid
-					maxWidth='100%'
-					container
-					rowSpacing={1}
-					columnSpacing={{ xs: 1, sm: 1, md: 2 }}>
+			<Box sx={{ width: '90%', margin: '30px 10px', gridAutoFlow: 'row' }}>
+				<Grid margin='0 auto' container spacing={2}>
 					<Grid item xs={6} sm={3}>
 						<LittleCard title='Followers' value={githubState.user.followers} />
 					</Grid>
@@ -130,7 +148,9 @@ const ProfileCard = ({ setOpenRepos, openRepos }) => {
 				<ButtonStyled onClick={() => handleRepos(githubState.user.login)}>
 					Repositório
 				</ButtonStyled>
-				<ButtonStyled>Starred</ButtonStyled>
+				<ButtonStyled onClick={() => handleStarred(githubState.user.login)}>
+					Starred
+				</ButtonStyled>
 			</div>
 		</Box>
 	);

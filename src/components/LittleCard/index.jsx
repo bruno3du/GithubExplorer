@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const BoxContainer = styled.div`
 	margin-top: 30px;
-	width: 120px;
+	/* width: 120px; */
 `;
 
 const BoxTitle = styled.div`
